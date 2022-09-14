@@ -25,7 +25,12 @@ class _TopBarContentsState extends State<TopBarContents> {
         child: Consumer<ThemeProvider>(
             builder: (context, ThemeProvider themeProvider, child) {
           return ResponsiveWidget.isSmallScreen(context)
-           ?  SingleChildScrollView(
+           ?  EntranceFader(
+              duration: const Duration(milliseconds: 250),
+              offset: const Offset(0, -10),
+              delay: const Duration(seconds: 4),
+              child:
+          SingleChildScrollView(
             child: Column(
               children: [
                 Padding(
@@ -79,11 +84,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                         CrossAxisAlignment.start,
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          EntranceFader(
-                                              duration: const Duration(milliseconds: 250),
-                                              offset: const Offset(0, -10),
-                                              delay: const Duration(seconds: 4),
-                                              child:  Flexible(
+                                        Expanded(
                                                   flex: 1,
                                                   child: Text(
                                                     textScaleFactor: 1,
@@ -94,19 +95,21 @@ class _TopBarContentsState extends State<TopBarContents> {
                                                         fontSize: width >= 1201
                                                             ? 17 : width >= 601
                                                             ? 11 : width >= 400
-                                                            ? 11 : 9,
+                                                            ? 14 : 12,
                                                         letterSpacing: 0.5),
-                                                  ))),
+                                                  )),
+
                                           Flexible(
                                               flex: 1,
-                                              child: Text('STORE',
+                                              child:
+                          Text('STORE',
                                                   textAlign: TextAlign.center,
                                                   style: Theme.of(context).textTheme.headline2
                                                       ?.copyWith(fontWeight: FontWeight.w900,
                                                       fontSize: width >= 1201
                                                           ? 17 : width >= 601
                                                           ? 11 : width >= 400
-                                                          ? 11 : 9,
+                                                          ? 11 : 11,
 
                                                       letterSpacing: 0.5)
                                               ))])]),
@@ -124,11 +127,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            EntranceFader(
-                                                duration: const Duration(milliseconds: 250),
-                                                offset: const Offset(0, -10),
-                                                delay: const Duration(seconds: 3),
-                                                child: Flexible(
+                                          Flexible(
                                                     flex: 1,
                                                     child: Text('CATEGORIES',
                                                         style: Theme.of(context).textTheme.headline1?.copyWith(
@@ -137,7 +136,8 @@ class _TopBarContentsState extends State<TopBarContents> {
                                                           ? 17 : width >= 601
                                                           ? 11 : width >= 400
                                                           ? 11: 10,
-                                                )))),
+                                                ))),
+                                  // ),
                                             const SizedBox(height: 5),
                                             Visibility(
                                                 maintainAnimation: true,
@@ -162,11 +162,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            EntranceFader(
-                                              duration: const Duration(milliseconds: 250),
-                                              offset: const Offset(0, -10),
-                                              delay: const Duration(seconds: 3),
-                                              child: Flexible(
+                                              Flexible(
                                                   flex: 2,
                                                   child: Text('FAQS',
                                                       style: Theme.of(context).textTheme.headline1?.copyWith(
@@ -176,7 +172,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                                             ? 11 : width >= 400
                                                             ? 11: 10,
                                                       ))),
-                                            ),
+                                            // ),
                                             const SizedBox(height: 5),
                                             Visibility(
                                                 maintainAnimation: true,
@@ -244,15 +240,22 @@ class _TopBarContentsState extends State<TopBarContents> {
                                             ),
                                             onPressed: () {
                                               themeProvider.changeTheme();
-                                            }))))])]))))]))
+                                            }))))])]))))])))
 
               //////////// Large Screen /////////////
-              : SingleChildScrollView(
+              :  EntranceFader(
+              duration: const Duration(milliseconds: 250),
+              offset: const Offset(0, -10),
+              delay: const Duration(seconds: 4),
+              child:
+
+          SingleChildScrollView(
             child: Column(
               children: [
                 Padding(
                     padding: EdgeInsets.all(2),
-                    child: Container(
+                    child:
+            Container(
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                               end: FractionalOffset.bottomRight,
@@ -303,18 +306,13 @@ class _TopBarContentsState extends State<TopBarContents> {
                                         CrossAxisAlignment.start,
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          EntranceFader(
-                                              duration: const Duration(milliseconds: 250),
-                                              offset: const Offset(0, -10),
-                                              delay: const Duration(seconds: 4),
-                                              child:  Flexible(
-                                                  flex: 1,
-                                                  child: Text(
+
+                                        Text(
                                                       textScaleFactor: 1,
                                                       'SHOPIFY',
                                                       style: Theme.of(context)
                                                           .textTheme
-                                                          .headline2))),
+                                                          .headline2),
                                           Flexible(
                                               flex: 1,
                                               child: Text('STORE',
@@ -325,7 +323,8 @@ class _TopBarContentsState extends State<TopBarContents> {
                                                     fontSize: width >= 1201
                                                         ? 17 : width >= 601
                                                         ? 11 : width >= 400
-                                                        ? 9: 8,)))])]),
+                                                        ? 9: 8,)))
+                                        ])]),
                               SizedBox(width: 90),
                               InkWell(
                                   onHover: (value) {
@@ -338,16 +337,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                                   child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        EntranceFader(
-                                            duration: const Duration(milliseconds: 250),
-                                            offset: const Offset(0, -10),
-                                            delay: const Duration(seconds: 3),
-                                            child: Flexible(
+                                            Flexible(
                                                 flex: 1,
                                                 child: Text('Discover',
                                                     style: Theme.of(context)
                                                         .textTheme
-                                                        .headline1))),
+                                                        .headline1)),
                                         const SizedBox(height: 5),
                                         Visibility(
                                             maintainAnimation: true,
@@ -371,14 +366,10 @@ class _TopBarContentsState extends State<TopBarContents> {
                                   child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        EntranceFader(
-                                            duration: const Duration(milliseconds: 250),
-                                            offset: const Offset(0, -10),
-                                            delay: const Duration(seconds: 3),
-                                            child: Flexible(
+                                      Flexible(
                                                 flex: 1,
                                                 child: Text('Categories',
-                                                    style: Theme.of(context).textTheme.headline1))),
+                                                    style: Theme.of(context).textTheme.headline1)),
                                         const SizedBox(height: 5),
                                         Visibility(
                                             maintainAnimation: true,
@@ -403,16 +394,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                                   child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        EntranceFader(
-                                            duration: const Duration(milliseconds: 250),
-                                            offset: const Offset(0, -10),
-                                            delay: const Duration(seconds: 3),
-                                            child:  Flexible(
+                                            Flexible(
                                                 flex: 2,
                                                 child: Text('Contact Us',
                                                     style: Theme.of(context)
                                                         .textTheme
-                                                        .headline1))),
+                                                        .headline1)),
                                         const SizedBox(height: 5),
                                         Visibility(
                                             maintainAnimation: true,
@@ -439,17 +426,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            EntranceFader(
-                                              duration: const Duration(milliseconds: 250),
-                                              offset: const Offset(0, -10),
-                                              delay: const Duration(seconds: 3),
-                                              child: Flexible(
+                                              Flexible(
                                                   flex: 2,
                                                   child: Text('FAQS',
                                                       style: Theme.of(context)
                                                           .textTheme
                                                           .headline1)),
-                                            ),
                                             const SizedBox(height: 5),
                                             Visibility(
                                                 maintainAnimation: true,
@@ -520,7 +502,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                             ),
                                           onPressed: () {
                                             themeProvider.changeTheme();
-                                          }))))])]))))]));
+                                          }))))])]))))])));
         }));
   }
 }

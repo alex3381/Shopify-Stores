@@ -86,7 +86,7 @@ class _WebMainPageState extends State<WebMainPage> {
                                   SliverAppBar(
                                     automaticallyImplyLeading: true,
                                     backgroundColor: Colors.transparent,
-                                    expandedHeight: 2,
+                                    // expandedHeight: -20,
                                     forceElevated: true,
                                     floating: true,
                                     pinned: true,
